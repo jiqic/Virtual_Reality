@@ -5,17 +5,17 @@ let army=[]
 window.addEventListener("DOMContentLoaded",function() {
   scene = document.querySelector("a-scene");
   
-  mechTemplate = document.getElementById("mech-1");
+  mech = document.getElementById("mech-1");
+
+  mech_2 = mech.cloneNode(true);
+  mech_2.setAttribute("position","0 13 10");
+  mech_2.setAttribute("rotation","0 180 0");
+  scene.append(mech_2);
  
-  for(let x=-50; x<50; x+=10){
-    for(let z = -100; z<100; z+=10){
-      let m=new Mech(x,13,z);
-      army.push(m);
-    }
-  }
   loop();
 })
 function loop(){
+
 
   window.requestAnimationFrame( loop );
 }

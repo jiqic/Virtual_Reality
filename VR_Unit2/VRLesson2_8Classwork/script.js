@@ -1,17 +1,19 @@
-let target;
+let wireframe;
 
 window.addEventListener("DOMContentLoaded",function() {
-  target = document.querySelector("#target");
-  target.a = 0;
-  target.da = -1;
+  wireframe = document.querySelector("#wireframe");
+  wireframe.a = 0;
+  wireframe.da = -1;
 
   loop();
 })
 
 function loop(){
-  target.a += target.da;
-
-  target.setAttribute("rotation",{x:target.a, y:0, z: 0});
+  wireframe.a += wireframe.da;
+  if(wireframe.a > 90){
+    wireframe.da = 0;
+  }
+  wireframe.setAttribute("rotation",{x:wireframe.a, y:0, z: 0});
 
   window.requestAnimationFrame( loop );
 }
